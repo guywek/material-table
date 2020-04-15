@@ -32,7 +32,7 @@ class MTableAction extends React.Component {
 
         if (typeof showIf === "function") {
             const show = showIf(this.props.data);
-            if (!show) return;
+            if (!show) return null;
         }
 
         const handleOnClick = event => {

@@ -83,7 +83,7 @@ var MTableAction = /*#__PURE__*/function (_React$Component) {
 
       if (typeof showIf === "function") {
         var show = showIf(this.props.data);
-        if (!show) return;
+        if (!show) return null;
       }
 
       var handleOnClick = function handleOnClick(event) {
