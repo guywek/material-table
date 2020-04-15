@@ -62,7 +62,7 @@ export default class MTableBodyRow extends React.Component {
                     ...this.props.options.actionsCellStyle,
                 }}
             >
-                <div style={{ display: "flex" }}>
+                <div style={{ display: "flex", justifyContent: "flex-end" }}>
                     <this.props.components.Actions
                         data={this.props.data}
                         actions={actions}
