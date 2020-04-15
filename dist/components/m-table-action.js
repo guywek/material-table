@@ -17,11 +17,11 @@ var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/cl
 
 var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));
 
+var _inherits2 = _interopRequireDefault(require("@babel/runtime/helpers/inherits"));
+
 var _possibleConstructorReturn2 = _interopRequireDefault(require("@babel/runtime/helpers/possibleConstructorReturn"));
 
 var _getPrototypeOf2 = _interopRequireDefault(require("@babel/runtime/helpers/getPrototypeOf"));
-
-var _inherits2 = _interopRequireDefault(require("@babel/runtime/helpers/inherits"));
 
 var React = _interopRequireWildcard(require("react"));
 
@@ -33,17 +33,19 @@ var _IconButton = _interopRequireDefault(require("@material-ui/core/IconButton")
 
 var _Tooltip = _interopRequireDefault(require("@material-ui/core/Tooltip"));
 
-/* eslint-disable no-unused-vars */
+function _createSuper(Derived) { return function () { var Super = (0, _getPrototypeOf2["default"])(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = (0, _getPrototypeOf2["default"])(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2["default"])(this, result); }; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
 /* eslint-enable no-unused-vars */
-var MTableAction =
-/*#__PURE__*/
-function (_React$Component) {
+var MTableAction = /*#__PURE__*/function (_React$Component) {
   (0, _inherits2["default"])(MTableAction, _React$Component);
+
+  var _super = _createSuper(MTableAction);
 
   function MTableAction() {
     (0, _classCallCheck2["default"])(this, MTableAction);
-    return (0, _possibleConstructorReturn2["default"])(this, (0, _getPrototypeOf2["default"])(MTableAction).apply(this, arguments));
+    return _super.apply(this, arguments);
   }
 
   (0, _createClass2["default"])(MTableAction, [{
@@ -54,11 +56,12 @@ function (_React$Component) {
       var action = this.props.action;
 
       var _ref = action || {},
-          extraProps = _ref.extraProps;
+          extraProps = _ref.extraProps,
+          showIf = _ref.showIf;
 
       var disabled = action.disabled || this.props.disabled;
 
-      if (typeof action === 'function') {
+      if (typeof action === "function") {
         action = action(this.props.data);
 
         if (!action) {
@@ -78,6 +81,11 @@ function (_React$Component) {
         return null;
       }
 
+      if (typeof showIf === "function") {
+        var show = showIf(this.props.data);
+        if (!show) return;
+      }
+
       var handleOnClick = function handleOnClick(event) {
         if (action.onClick) {
           action.onClick(event, _this.props.data);
@@ -85,10 +93,10 @@ function (_React$Component) {
         }
       };
 
-      var icon = typeof action.icon === "string" ? React.createElement(_Icon["default"], action.iconProps, action.icon) : typeof action.icon === "function" ? action.icon((0, _objectSpread2["default"])({}, action.iconProps, {
+      var icon = typeof action.icon === "string" ? /*#__PURE__*/React.createElement(_Icon["default"], action.iconProps, action.icon) : typeof action.icon === "function" ? action.icon((0, _objectSpread2["default"])({}, action.iconProps, {
         disabled: disabled
-      })) : React.createElement(action.icon, null);
-      var button = React.createElement(_IconButton["default"], (0, _extends2["default"])({}, extraProps, {
+      })) : /*#__PURE__*/React.createElement(action.icon, null);
+      var button = /*#__PURE__*/React.createElement(_IconButton["default"], (0, _extends2["default"])({}, extraProps, {
         size: this.props.size,
         color: "inherit",
         disabled: disabled,
@@ -100,9 +108,9 @@ function (_React$Component) {
       if (action.tooltip) {
         // fix for issue #1049
         // https://github.com/mbrn/material-table/issues/1049
-        return disabled ? React.createElement(_Tooltip["default"], {
+        return disabled ? /*#__PURE__*/React.createElement(_Tooltip["default"], {
           title: action.tooltip
-        }, React.createElement("span", null, button)) : React.createElement(_Tooltip["default"], {
+        }, /*#__PURE__*/React.createElement("span", null, button)) : /*#__PURE__*/React.createElement(_Tooltip["default"], {
           title: action.tooltip
         }, button);
       } else {

@@ -21,13 +21,13 @@ var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/cl
 
 var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));
 
-var _possibleConstructorReturn2 = _interopRequireDefault(require("@babel/runtime/helpers/possibleConstructorReturn"));
-
-var _getPrototypeOf3 = _interopRequireDefault(require("@babel/runtime/helpers/getPrototypeOf"));
-
 var _assertThisInitialized2 = _interopRequireDefault(require("@babel/runtime/helpers/assertThisInitialized"));
 
 var _inherits2 = _interopRequireDefault(require("@babel/runtime/helpers/inherits"));
+
+var _possibleConstructorReturn2 = _interopRequireDefault(require("@babel/runtime/helpers/possibleConstructorReturn"));
+
+var _getPrototypeOf2 = _interopRequireDefault(require("@babel/runtime/helpers/getPrototypeOf"));
 
 var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
 
@@ -47,17 +47,17 @@ var _propTypes = _interopRequireDefault(require("prop-types"));
 
 var React = _interopRequireWildcard(require("react"));
 
-/* eslint-disable no-unused-vars */
+function _createSuper(Derived) { return function () { var Super = (0, _getPrototypeOf2["default"])(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = (0, _getPrototypeOf2["default"])(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2["default"])(this, result); }; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
 /* eslint-enable no-unused-vars */
-var MTableBodyRow =
-/*#__PURE__*/
-function (_React$Component) {
+var MTableBodyRow = /*#__PURE__*/function (_React$Component) {
   (0, _inherits2["default"])(MTableBodyRow, _React$Component);
 
-  function MTableBodyRow() {
-    var _getPrototypeOf2;
+  var _super = _createSuper(MTableBodyRow);
 
+  function MTableBodyRow() {
     var _this;
 
     (0, _classCallCheck2["default"])(this, MTableBodyRow);
@@ -66,14 +66,14 @@ function (_React$Component) {
       args[_key] = arguments[_key];
     }
 
-    _this = (0, _possibleConstructorReturn2["default"])(this, (_getPrototypeOf2 = (0, _getPrototypeOf3["default"])(MTableBodyRow)).call.apply(_getPrototypeOf2, [this].concat(args)));
+    _this = _super.call.apply(_super, [this].concat(args));
     (0, _defineProperty2["default"])((0, _assertThisInitialized2["default"])(_this), "rotateIconStyle", function (isOpen) {
       return {
-        transform: isOpen ? 'rotate(90deg)' : 'none'
+        transform: isOpen ? "rotate(90deg)" : "none"
       };
     });
     (0, _defineProperty2["default"])((0, _assertThisInitialized2["default"])(_this), "getElementSize", function () {
-      return _this.props.options.padding === 'default' ? 'medium' : 'small';
+      return _this.props.options.padding === "default" ? "medium" : "small";
     });
     return _this;
   }
@@ -91,7 +91,7 @@ function (_React$Component) {
       }).map(function (columnDef, index) {
         var value = _this2.props.getFieldValue(_this2.props.data, columnDef);
 
-        return React.createElement(_this2.props.components.Cell, {
+        return /*#__PURE__*/React.createElement(_this2.props.components.Cell, {
           size: size,
           icons: _this2.props.icons,
           columnDef: (0, _objectSpread2["default"])({
@@ -108,23 +108,23 @@ function (_React$Component) {
     key: "renderActions",
     value: function renderActions() {
       var size = this.getElementSize();
-      var baseIconSize = size === 'medium' ? 42 : 26;
+      var baseIconSize = size === "medium" ? 42 : 26;
       var actions = this.props.actions.filter(function (a) {
         return a.position === "row" || typeof a === "function";
       });
-      return React.createElement(_TableCell["default"], {
+      return /*#__PURE__*/React.createElement(_TableCell["default"], {
         size: size,
         padding: "none",
         key: "key-actions-column",
         style: (0, _objectSpread2["default"])({
           width: baseIconSize * actions.length,
-          padding: '0px 5px'
+          padding: "0px 5px"
         }, this.props.options.actionsCellStyle)
-      }, React.createElement("div", {
+      }, /*#__PURE__*/React.createElement("div", {
         style: {
-          display: 'flex'
+          display: "flex"
         }
-      }, React.createElement(this.props.components.Actions, {
+      }, /*#__PURE__*/React.createElement(this.props.components.Actions, {
         data: this.props.data,
         actions: actions,
         components: this.props.components,
@@ -139,26 +139,26 @@ function (_React$Component) {
 
       var checkboxProps = this.props.options.selectionProps || {};
 
-      if (typeof checkboxProps === 'function') {
+      if (typeof checkboxProps === "function") {
         checkboxProps = checkboxProps(this.props.data);
       }
 
       var size = this.getElementSize();
-      var baseIconSize = size === 'medium' ? 42 : 26;
-      var styles = size === 'medium' ? {
+      var baseIconSize = size === "medium" ? 42 : 26;
+      var styles = size === "medium" ? {
         marginLeft: this.props.level * 9
       } : {
         padding: "4px",
         marginLeft: 5 + this.props.level * 9
       };
-      return React.createElement(_TableCell["default"], {
+      return /*#__PURE__*/React.createElement(_TableCell["default"], {
         size: this.getElementSize(),
         padding: "none",
         key: "key-selection-column",
         style: {
           width: baseIconSize + 9 * (this.props.treeDataMaxLevel - 1)
         }
-      }, React.createElement(_Checkbox["default"], (0, _extends2["default"])({
+      }, /*#__PURE__*/React.createElement(_Checkbox["default"], (0, _extends2["default"])({
         size: size,
         checked: this.props.data.tableData.checked === true,
         onClick: function onClick(e) {
@@ -179,75 +179,75 @@ function (_React$Component) {
       var CustomIcon = function CustomIcon(_ref) {
         var icon = _ref.icon,
             iconProps = _ref.iconProps;
-        return typeof icon === "string" ? React.createElement(_Icon["default"], iconProps, icon) : React.createElement(icon, (0, _objectSpread2["default"])({}, iconProps));
+        return typeof icon === "string" ? /*#__PURE__*/React.createElement(_Icon["default"], iconProps, icon) : React.createElement(icon, (0, _objectSpread2["default"])({}, iconProps));
       };
 
-      if (typeof this.props.detailPanel == 'function') {
-        return React.createElement(_TableCell["default"], {
+      if (typeof this.props.detailPanel == "function") {
+        return /*#__PURE__*/React.createElement(_TableCell["default"], {
           size: this.getElementSize(),
           padding: "none",
           key: "key-detail-panel-column",
           style: {
             width: 42,
-            textAlign: 'center'
+            textAlign: "center"
           }
-        }, React.createElement(_IconButton["default"], {
+        }, /*#__PURE__*/React.createElement(_IconButton["default"], {
           size: this.getElementSize(),
           style: (0, _objectSpread2["default"])({
-            transition: 'all ease 200ms'
+            transition: "all ease 200ms"
           }, this.rotateIconStyle(this.props.data.tableData.showDetailPanel)),
           onClick: function onClick(event) {
             _this4.props.onToggleDetailPanel(_this4.props.path, _this4.props.detailPanel);
 
             event.stopPropagation();
           }
-        }, React.createElement(this.props.icons.DetailPanel, null)));
+        }, /*#__PURE__*/React.createElement(this.props.icons.DetailPanel, null)));
       } else {
-        return React.createElement(_TableCell["default"], {
+        return /*#__PURE__*/React.createElement(_TableCell["default"], {
           size: this.getElementSize(),
           padding: "none",
           key: "key-detail-panel-column"
-        }, React.createElement("div", {
+        }, /*#__PURE__*/React.createElement("div", {
           style: {
             width: 42 * this.props.detailPanel.length,
-            textAlign: 'center',
-            display: 'flex'
+            textAlign: "center",
+            display: "flex"
           }
         }, this.props.detailPanel.map(function (panel, index) {
           if (typeof panel === "function") {
             panel = panel(_this4.props.data);
           }
 
-          var isOpen = (_this4.props.data.tableData.showDetailPanel || '').toString() === panel.render.toString();
-          var iconButton = React.createElement(_this4.props.icons.DetailPanel, null);
+          var isOpen = (_this4.props.data.tableData.showDetailPanel || "").toString() === panel.render.toString();
+          var iconButton = /*#__PURE__*/React.createElement(_this4.props.icons.DetailPanel, null);
           var animation = true;
 
           if (isOpen) {
             if (panel.openIcon) {
-              iconButton = React.createElement(CustomIcon, {
+              iconButton = /*#__PURE__*/React.createElement(CustomIcon, {
                 icon: panel.openIcon,
                 iconProps: panel.iconProps
               });
               animation = false;
             } else if (panel.icon) {
-              iconButton = React.createElement(CustomIcon, {
+              iconButton = /*#__PURE__*/React.createElement(CustomIcon, {
                 icon: panel.icon,
                 iconProps: panel.iconProps
               });
             }
           } else if (panel.icon) {
-            iconButton = React.createElement(CustomIcon, {
+            iconButton = /*#__PURE__*/React.createElement(CustomIcon, {
               icon: panel.icon,
               iconProps: panel.iconProps
             });
             animation = false;
           }
 
-          iconButton = React.createElement(_IconButton["default"], {
+          iconButton = /*#__PURE__*/React.createElement(_IconButton["default"], {
             size: _this4.getElementSize(),
             key: "key-detail-panel-" + index,
             style: (0, _objectSpread2["default"])({
-              transition: 'all ease 200ms'
+              transition: "all ease 200ms"
             }, _this4.rotateIconStyle(animation && isOpen)),
             disabled: panel.disabled,
             onClick: function onClick(event) {
@@ -258,7 +258,7 @@ function (_React$Component) {
           }, iconButton);
 
           if (panel.tooltip) {
-            iconButton = React.createElement(_Tooltip["default"], {
+            iconButton = /*#__PURE__*/React.createElement(_Tooltip["default"], {
               key: "key-detail-panel-" + index,
               title: panel.tooltip
             }, iconButton);
@@ -272,7 +272,7 @@ function (_React$Component) {
     key: "getStyle",
     value: function getStyle(index, level) {
       var style = {
-        transition: 'all ease 300ms'
+        transition: "all ease 300ms"
       };
 
       if (typeof this.props.options.rowStyle === "function") {
@@ -282,7 +282,7 @@ function (_React$Component) {
       }
 
       if (this.props.onRowClick) {
-        style.cursor = 'pointer';
+        style.cursor = "pointer";
       }
 
       if (this.props.hasAnyEditingRow) {
@@ -320,17 +320,17 @@ function (_React$Component) {
 
       if (this.props.isTreeData) {
         if (this.props.data.tableData.childRows && this.props.data.tableData.childRows.length > 0) {
-          renderColumns.splice(0, 0, React.createElement(_TableCell["default"], {
+          renderColumns.splice(0, 0, /*#__PURE__*/React.createElement(_TableCell["default"], {
             size: this.getElementSize(),
             padding: "none",
             key: "key-tree-data-column",
             style: {
               width: 48 + 9 * (this.props.treeDataMaxLevel - 2)
             }
-          }, React.createElement(_IconButton["default"], {
+          }, /*#__PURE__*/React.createElement(_IconButton["default"], {
             size: this.getElementSize(),
             style: (0, _objectSpread2["default"])({
-              transition: 'all ease 200ms',
+              transition: "all ease 200ms",
               marginLeft: this.props.level * 9
             }, this.rotateIconStyle(this.props.data.tableData.isTreeExpanded)),
             onClick: function onClick(event) {
@@ -338,9 +338,9 @@ function (_React$Component) {
 
               event.stopPropagation();
             }
-          }, React.createElement(this.props.icons.DetailPanel, null))));
+          }, /*#__PURE__*/React.createElement(this.props.icons.DetailPanel, null))));
         } else {
-          renderColumns.splice(0, 0, React.createElement(_TableCell["default"], {
+          renderColumns.splice(0, 0, /*#__PURE__*/React.createElement(_TableCell["default"], {
             padding: "none",
             key: "key-tree-data-column"
           }));
@@ -349,7 +349,7 @@ function (_React$Component) {
 
 
       if (this.props.detailPanel) {
-        if (this.props.options.detailPanelColumnAlignment === 'right') {
+        if (this.props.options.detailPanelColumnAlignment === "right") {
           renderColumns.push(this.renderDetailPanelColumn());
         } else {
           renderColumns.splice(0, 0, this.renderDetailPanelColumn());
@@ -359,7 +359,7 @@ function (_React$Component) {
       this.props.columns.filter(function (columnDef) {
         return columnDef.tableData.groupOrder > -1;
       }).forEach(function (columnDef) {
-        renderColumns.splice(0, 0, React.createElement(_TableCell["default"], {
+        renderColumns.splice(0, 0, /*#__PURE__*/React.createElement(_TableCell["default"], {
           size: _this5.getElementSize(),
           padding: "none",
           key: "key-group-cell" + columnDef.tableData.id
@@ -385,11 +385,11 @@ function (_React$Component) {
           localization = _this$props.localization,
           actions = _this$props.actions,
           rowProps = (0, _objectWithoutProperties2["default"])(_this$props, ["icons", "data", "columns", "components", "detailPanel", "getFieldValue", "isTreeData", "onRowClick", "onRowSelected", "onTreeExpandChanged", "onToggleDetailPanel", "onEditingCanceled", "onEditingApproved", "options", "hasAnyEditingRow", "treeDataMaxLevel", "localization", "actions"]);
-      var testId = "item-".concat(data.id);
-      return React.createElement(React.Fragment, null, React.createElement(_TableRow["default"], (0, _extends2["default"])({
+      var testid = "item-".concat(data.id);
+      return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_TableRow["default"], (0, _extends2["default"])({
         selected: hasAnyEditingRow
       }, rowProps, {
-        "data-testid": testId,
+        "data-testid": testid,
         hover: onRowClick ? true : false,
         style: this.getStyle(this.props.index, this.props.level),
         onClick: function onClick(event) {
@@ -411,7 +411,7 @@ function (_React$Component) {
         }
       }), renderColumns), this.props.data.tableData.childRows && this.props.data.tableData.isTreeExpanded && this.props.data.tableData.childRows.map(function (data, index) {
         if (data.tableData.editing) {
-          return React.createElement(_this5.props.components.EditRow, {
+          return /*#__PURE__*/React.createElement(_this5.props.components.EditRow, {
             columns: _this5.props.columns.filter(function (columnDef) {
               return !columnDef.hidden;
             }),
@@ -429,7 +429,7 @@ function (_React$Component) {
             onEditingApproved: onEditingApproved
           });
         } else {
-          return React.createElement(_this5.props.components.Row, (0, _extends2["default"])({}, _this5.props, {
+          return /*#__PURE__*/React.createElement(_this5.props.components.Row, (0, _extends2["default"])({}, _this5.props, {
             data: data,
             index: index,
             key: index,
@@ -441,8 +441,8 @@ function (_React$Component) {
             treeDataMaxLevel: treeDataMaxLevel
           }));
         }
-      }), this.props.data.tableData && this.props.data.tableData.showDetailPanel && React.createElement(_TableRow["default"] // selected={this.props.index % 2 === 0}
-      , null, React.createElement(_TableCell["default"], {
+      }), this.props.data.tableData && this.props.data.tableData.showDetailPanel && /*#__PURE__*/React.createElement(_TableRow["default"] // selected={this.props.index % 2 === 0}
+      , null, /*#__PURE__*/React.createElement(_TableCell["default"], {
         size: this.getElementSize(),
         colSpan: renderColumns.length,
         padding: "none"
